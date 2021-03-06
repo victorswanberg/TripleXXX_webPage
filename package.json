@@ -1,0 +1,24 @@
+{
+  "name": "triplexxx_webpage",
+  "version": "1.0.0",
+  "description": "This will be a personal project to help a local business during Covid-19. I have teamed up with two other developers to revamp a companies webpage.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run lite",
+    "lite": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/victorswanbergsublimemedia/TripleXXX_webPage.git"
+  },
+  "author": "Victor Swanberg, two others",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/victorswanbergsublimemedia/TripleXXX_webPage/issues"
+  },
+  "homepage": "https://github.com/victorswanbergsublimemedia/TripleXXX_webPage#readme",
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  }
+}
