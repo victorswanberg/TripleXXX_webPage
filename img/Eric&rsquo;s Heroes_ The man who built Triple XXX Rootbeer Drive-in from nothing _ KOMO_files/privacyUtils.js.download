@@ -1,0 +1,179 @@
+function getPrivacyKVP() {
+  var KVPs = sinclairDigital && sinclairDigital.pageData ? sinclairDigital.pageData.rendering.site.integration.customIntegrationPairs : null;
+  var usPrivacyEnabled = false;
+
+  if (KVPs && JSON.parse(KVPs)) {
+    KVPs = JSON.parse(KVPs);
+    usPrivacyEnabled = parseKeyValues(KVPs).usPrivacyEnabled;
+  }
+
+  return usPrivacyEnabled;
+}
+
+function isFullMeasure() {
+  return window.location.href.indexOf('fullmeasure') > -1;
+}
+
+// command = 'getUSPData', version = 1, callback = function(uspData: uspdata, success: boolean)
+window.__uspapi = function (command, version, callback) {
+  if (command === 'getUSPData' && version === 1) {
+    if (isFullMeasure() || getPrivacyKVP()) { // enable via KVP or if the site is fullmeasure.news
+      // check trustarc for privacy info
+      var uspString = getTrustArc();
+
+      if (uspString) { // if the uspString was created and returned properly
+        // Then perform callback with correct object
+        var uspData = {
+          version: version,
+          uspString: uspString
+        };
+
+        return callback(uspData, true);
+      }
+    }
+  }
+
+  // Case where command !== getUSPData || uspString returns null || version !== 1 || !usPrivacyEnabled
+  // call callback with uspData = null and success = false
+  return callback(null, false);
+}
+
+
+function getTrustArc() {
+  if (window.truste && window.truste.cma) { // if the trustarc object and methods are available
+    var url = location.protocol + '//' + location.host;
+
+    // Get consent decision by calling trustarc api
+    var consentDetails = window.truste.cma.callApi("getConsentDecision", url);
+    /*
+    returns consentDetails: {consentDecision:$integer, source:"asserted"}
+      consentDetails.source can be "asserted" or "implied" - ignore for our purposes
+      consentDetails.consentDecision can be 0, 1, 2, or 3
+        0 - no decision (closing banner without making a decision)
+        1 - required - "opted out"
+        3 - advertising - accepted
+    */
+
+    var uspPrivacyString = formatUSPrivacyString(consentDetails.consentDecision);
+    return writeUSPrivacyString(uspPrivacyString);
+  } else {
+    return null;
+  }
+}
+
+
+// Handle getting the value of the notice_behavior cookie (provided for us by trustarc)
+function getCookieData(name) {
+  var value = '; ' + document.cookie;
+  var parts = value.split('; ' + name + '=');
+  if (parts.length === 2) {
+    return parts.pop().split(';').shift();
+  }
+
+  return null;
+}
+
+
+function getNoticeBehavior() {
+  var cookie = getCookieData('notice_behavior');
+  var usPrivacyString = getUSPrivacyString();
+
+  // If the user is in region "eu" (which covers both EU and California), meaning they've seen the banner by default, then we return "Y"
+  if (cookie) {
+    var noticeRegion = cookie.split(',')[1];
+    if (noticeRegion === 'eu') {
+      return 'Y';
+    }
+  }
+
+  // If there's an existing USPrivacyString, we need to check if the "notice given" letter is set to Y
+  // If it is, we use that, regardless of the region (meaning that they've checked their privacy settings themselves)
+  if (usPrivacyString && usPrivacyString[1] === 'Y') {
+    return 'Y';
+  }
+
+  return 'N';
+}
+
+// On cookie preferences click
+window.setExplicitNoticeGiven = function () {
+  truste.eu && truste.eu.clickListener();
+
+  var usPrivacyString = getUSPrivacyString() || '1-N-';
+  usPrivacyString = usPrivacyString[0] + 'Y' + usPrivacyString.slice(2);
+  writeUSPrivacyString(usPrivacyString);
+}
+
+
+function formatUSPrivacyString(consentDecision) {
+  // If 0 or 3, the user has not opted out, so we return "N"
+  // If 1 or 2, the user has opted out of advertising, so we return "Y"
+  var advertisingOptOut = consentDecision === 0 || consentDecision === 3 ? 'N' : 'Y';
+  // Default will be 1-N-
+  // The third value (advertisingOptOut) will be the only one that changes based on the user's preferences
+  var uspPrivacyString = '1-' + advertisingOptOut + '-';
+  return uspPrivacyString;
+}
+
+// Write USP string to localStorage
+function writeUSPrivacyString(usPrivacyString) {
+  // write USP cookie data
+  localStorage.setItem('usprivacy', usPrivacyString);
+  return usPrivacyString;
+}
+
+// Get USPrivacyString from localStorage
+function getUSPrivacyString() {
+  var usPrivacyString = localStorage.getItem('usprivacy');
+  return usPrivacyString;
+}
+
+// Remove USPrivacyString from localStorage - mainly used for unit testing
+// Return success boolean
+function clearUSPrivacyString() {
+  localStorage.removeItem('usprivacy');
+  return !localStorage.getItem('usprivacy');
+}
+
+
+// Handle postMessage implementation for use without SafeFrame
+function receiveUSPrivacyMessage(event) {
+  var message = event.data;
+  var apiCall = message.__uspapiCall;
+
+  if (apiCall) { // only want to do anything with the events called with the correct params
+    var response = {
+     __uspapiReturn: {
+       callId: apiCall.callId,
+     }
+    }
+
+    // Call __uspapi for them with the params they've given
+    __uspapi(apiCall.command, apiCall.version, function(uspData, success) {
+      response.__uspapiReturn.returnValue = uspData;
+      response.__uspapiReturn.success = success;
+      // Respond with the results
+      if (event.source) {
+        event.source.postMessage(response, event.origin);
+      }
+
+      return response;
+    })
+  }
+}
+
+// Set listener for postMessage
+window.addEventListener("message", receiveUSPrivacyMessage, false);
+
+
+function parseKeyValues(featureFlags) {
+  for (var flag in featureFlags) {
+    if (featureFlags.hasOwnProperty(flag)) {
+        if(featureFlags[flag].length > 0 && (featureFlags[flag] == 'true' || featureFlags[flag] == "false" || featureFlags[flag].indexOf('{') > -1 || featureFlags[flag].indexOf(']') > -1)){
+          featureFlags[flag] = featureFlags[flag].replace(/^"(.*)"$/, '$1');
+          featureFlags[flag] = JSON.parse(featureFlags[flag]);
+        }
+    }
+  }
+  return featureFlags;
+}
