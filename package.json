@@ -1,24 +1,37 @@
 {
-  "name": "triplexxx_webpage",
+  "name": "triple-xxx-website",
   "version": "1.0.0",
-  "description": "This will be a personal project to help a local business during Covid-19. I have teamed up with two other developers to revamp a companies webpage.",
+  "description": "Triple X webpage for Portfolio project",
   "main": "index.html",
   "scripts": {
+    "lite": "lite-server",
+    "scss": "node-sass -o css/ css/",
+    "start": "npm run watch:all",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm run lite",
-    "lite": "lite-server"
+    "watch:scss": "onchange \"css/*.scss\" -- npm run scss",
+    "watch:all": "parallelshell \"npm run watch:scss\" \"npm run lite\"",
+    "copyfonts": "copyfiles -f node_modules/font-awesome/fonts/* dist/fonts",
+    "imagemin": "imagemin img/* -o dist/img",
+    "usemin": "usemin contactus.html -d dist --htmlmin -o dist/contactus.html && usemin aboutus.html -d dist --htmlmin -o dist/aboutus.html && usemin index.html -d dist --htmlmin -o dist/index.html",
+    "clean": "rimraf dist",
+    "build": "npm run clean && npm run imagemin && npm run copyfonts && npm run usemin"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/victorswanbergsublimemedia/TripleXXX_webPage.git"
-  },
-  "author": "Victor Swanberg, two others",
+  "author": "Victor Swanberg, Chase Lones, David Avtandilyan",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/victorswanbergsublimemedia/TripleXXX_webPage/issues"
-  },
-  "homepage": "https://github.com/victorswanbergsublimemedia/TripleXXX_webPage#readme",
   "devDependencies": {
-    "lite-server": "^2.6.1"
+    "copyfiles": "^2.2.0",
+    "imagemin-cli": "^5.1.0",
+    "lite-server": "^2.5.4",
+    "node-sass": "^4.14.1",
+    "onchange": "^7.0.0",
+    "parallelshell": "3.0.1"
+  },
+  "dependencies": {
+    "aos": "^3.0.0-beta.6",
+    "bootstrap": "^4.5.2",
+    "bootstrap-social": "^5.1.1",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.5.1",
+    "popper.js": "^1.16.1"
   }
 }
