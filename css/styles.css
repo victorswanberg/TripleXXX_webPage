@@ -275,5 +275,9 @@ a, a:hover {
   
 /* Chases styles */
 #contactForm{
-  margin-top: 200px;
+  margin-top: 50px;
+}
+
+#contactParagraph{
+  margin-top: 180px;
 }
