@@ -59,10 +59,21 @@ a, a:hover {
     height: 100%; width: 100%;
   }
   
-  .my-nav{background-color: rgba(0,0,0,0.70)!important;}
-  .my-nav .nav-link{color: #ffffff; font-size: 18px;}
-  .my-nav .nav-link:hover{color: red;}
-  .fa-bars{color: white;}
+  .my-nav {
+    background-color: rgba(0,0,0,0.70)!important;
+  }
+  .my-nav .nav-link {
+    color: #ffffff;
+     font-size: 18px;
+    }
+  
+  .my-nav .nav-link:hover {
+    color: red;
+  }
+
+  .fa-bars { 
+    color: white;
+  }
   
   #home {
     background-image: url(/img/OldRestraunt.png);
@@ -115,8 +126,8 @@ a, a:hover {
   
   .card i{
     color: red;
-     font-size: 60px;
-      margin-top: 25px;
+    font-size: 60px;
+    margin-top: 25px;
   }
   
   .card .card-title {
@@ -175,8 +186,12 @@ a, a:hover {
 
   .hero-img {
     border-radius: 0px 30px 0px 30px;
-    max-width: 80%;
-    max-height: 80%;
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  .modal-header {
+    background-color: black;
   }
   /*History*/
   
@@ -189,28 +204,43 @@ a, a:hover {
     background-repeat: no-repeat;
     background-position: center center;
     background-color: black;
+    min-height: 40em;
   }
  
-  .card4 {
-    background-color: transparent; 
-    border: none;
-  }
-  .red-text {
+  i.like-icon {
     color: red;
+    font-size: 30px;
+    margin-top: 0%;
+    padding-right: 5px;
   }
 
-  .card4 .card-title {
+  .card4 {
+    background-color: none;
+    border: transparent;
+  }
+ .text-muted {
+    vertical-align: text-top;
+    color: black!important;
+  }
+
+  .blockquote-footer {
+    background-color: white;
+    color: black;
+  }
+
+  .red-text {
     color: red;
   }
 
   .card4 .card-text {
     color: aliceblue;
-    font-size: 18px;}
+    font-size: 18px;
+  } 
   /*Reasons to Visit Us end*/
-  
+
   /*team start*/
   .card-team {
-    border: none
+    border: none;
   }
   .card-team .card-img-top {
     border-radius: 0px 30px 0px 30px;

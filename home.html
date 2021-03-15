@@ -54,7 +54,7 @@
 
 	<!--landing page start-->
 	<div id="home">
-		<div class="landing-text">
+		<div class="landing-text" data-aos="slide-up">
 			<p class="landingheading1">Welcome to the best burgers in town</p>
 			<p class="landingheading2 d-none d-sm-block">Established in 1930</p><br />
 			<a href="#history-section" class="btn btn-lg btn-outline-light">Our History</a>
@@ -73,29 +73,32 @@
 			</div>
 			<div class="row mt-5 mb-5">
 				<div class="col-md-4">
-					<div class="card card1">
+					<div class="card card1" data-aos="fade-right">
 						<i class="fa fa-cutlery" aria-hidden="true"></i>
 						<div class="card-body">
 							<div class="card-title">Good Food</div>
-							<div class="card-text">Most of all, we are committed to giving you the best service and food. Try our famous "Incredible XXX" burger!</div>
+							<div class="card-text">Most of all, we are committed to giving you the best service and food. Try our
+								famous "Incredible XXX" burger!</div>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-4">
-					<div class="card card2">
+					<div class="card card2" data-aos="zoom-in">
 						<i class="fa fa-users" aria-hidden="true"></i>
 						<div class="card-body">
 							<div class="card-title">Community Driven</div>
-							<div class="card-text">We love giving back to our community. Being the first-drive we have to set the standards. Come join us at our car show events!</div>
+							<div class="card-text">We love giving back to our community. Being the first-drive we have to set the
+								standards. Come join us at our car show events!</div>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-4">
-					<div class="card card3">
+					<div class="card card3" data-aos="fade-left">
 						<i class="fa fa-globe" aria-hidden="true"></i>
 						<div class="card-body">
 							<div class="card-title">Great Atmosphere</div>
-							<div class="card-text">We are a local own restraunt. We are passionate about food and pride ourselves on exemplary service.</div>
+							<div class="card-text">We are a local own restraunt. We are passionate about food and pride ourselves on
+								exemplary service.</div>
 						</div>
 					</div>
 				</div>
@@ -107,45 +110,124 @@
 	<!-- History -->
 	<div class="container-fluid pt-5 bg-gray pb-5" id="history-section">
 		<div class="container">
-			<div class="row top-heading mt-5">
+			<div data-aos ="" class="row top-heading mt-5">
 				<div class="col-md-12">
 					<p>Our History</p>
 				</div>
 			</div>
 			<div class="row mt-4">
-				<div class="col-sm-6 d-flex justify-content-center">
-					<img src="img/histor3.jpg" class="img-fluid hero-img" alt="img2">
+				<div class="col-md-6 col-sm-12 d-flex justify-content-center" data-aos="fade-right">
+					<img src="img/histor3.jpg" class="img-fluid hero-img d-none d-sm-block" alt="img2">
 				</div>
-				<div class="col-sm-6">
+				<div class="col-md-6 col-sm-12 pt-sm-2">
 					<h3 class="hero-heading">Estalished in 1930</h3>
 					<p class="hero-paragraph">
-						The first drive-in restaurant in the Pacific Northwest was established in 1930 in Renton by A.H. Rutherford. The combination of Triple XXX Root Beer and food turned out to be a great idea which spread nationwide. Of all the XXXs that ever graced our country's landscape, Issaquah's is the only one left which sports the traditional barrel. Another Triple XXX still thrives in Lafayette, Indiana.
+						The first drive-in restaurant in the Pacific Northwest was established in 1930 in Renton by A.H. Rutherford.
+						The combination of Triple XXX Root Beer and food turned out to be a great idea which spread nationwide. Of
+						all the XXXs that ever graced our country's landscape, Issaquah's is the only one left which sports the
+						traditional barrel. Another Triple XXX still thrives in Lafayette, Indiana.
 					</p>
 					<p class="hero-paragraph">
-						Issaquah's original XXX Restaurant was located on Sunset Way near the location of Flintoft's Funeral Home. That restaurant, which was known by locals as "The Barrel", operated until the 1950's when the location was needed for a car dealer's parking lot. Today's XXX Root Beer Drive-In opened in 1968 at its current location.
+						The restaurant serves up 1950's style hamburgers and dairy concoctions in large serving sizes, and is proud
+						to host frequent gatherings of vintage automobile and motorcycle enthusiasts.
 					</p>
-					<p class="hero-paragraph">
-						The restaurant serves up 1950's style hamburgers and dairy concoctions in large serving sizes, and is proud to host frequent gatherings of vintage automobile and motorcycle enthusiasts.
-					</p>
-					<a href="#" class="btn btn-md custom-btn">View More</a>
+					<!-- Add a modal button  -->
+					<div class="row">
+						<div class="col-12 text-center">
+							<a role="button" class="btn btn-md custom-btn" id="historyButton">
+								View More
+							</a>
+						</div>
+					</div>
 				</div>
 			</div>
-			<div class="row mt-4">
-				<div class="col-sm-6">
-					<h3 class="hero-heading">Homely atmosphere</h3>
-					<p class="hero-paragraph">
-						The restaurant hasn't changed much since then, save for the addition of a lot of '50s and '60s memorabilia such as old radios, soft-drink bottles, license plates, posters of rock-'n-rollers and movie stars by Jose Enciso, who began leasing the Triple XXX from Norm in 1999. Jose and family members, along with other employees, deliver a friendly and informal hospitality reminiscent of the drive-in days at their peak in the 1950s.
-					</p>
-					<p class="hero-paragraph">
-						Today Jose gets his Triple XXX syrup from the Coca-Cola Company. Sadly, most Triple XXX restaurants eventually gave way to the onslaught of fast-food outlets.
-					</p>
-					<p class="hero-paragraph">
-						There you have it  a brief tour of the history behind Issaquah's own Triple XXX restaurant  long recognized as a community landmark. All that's left to make your trip back in time complete is to drive over to 98 N.E. Gilman Boulevard, say hello to Jose, and indulge yourself in old style root beer, golden oldies and memories of days gone by.
-					</p>
-					<a href="#" class="btn btn-md custom-btn">View More</a>
+			<!-- Modal -->
+			<div id="historyModal" class="modal fade" role="dialog">
+				<div class="modal-dialog modal-lg" role="document">
+					<div class="modal-content">
+						<div class="modal-header text-white">
+							<h3 class="modal-title ">Our History</h3>
+							<button type="button" class="close text-white" data-dismiss="modal">&times;</button>
+						</div>
+						<div class="modal-body p-3 pt-4">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-sm-6">
+										<p class="hero-paragraph" style="color: black;">
+											Issaquah's original XXX Restaurant was located on Sunset Way near the location of Flintoft's
+											Funeral Home.
+											That restaurant, which was known by locals as "The Barrel", operated until the 1950's when the
+											location was
+											needed for a car dealer's parking lot. Today's XXX Root Beer Drive-In opened in 1968 at its
+											current
+											location.
+										</p>
+									</div>
+									<div class="col-6 mx-auto">
+										<img src="img/histor4.jpg" class="img-fluid " alt="img2">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
-				<div class="col-sm-6 d-flex justify-content-center">
-					<img src="img/unnamed.jpg" class="img-fluid hero-img" alt="img2">
+			</div>
+
+			<div class="row mt-4">
+				<div class="col-md-6 col-sm-12 pt-sm-2 order-md-1 order-sm-12">
+					<h3 class="hero-heading">Festive atmosphere</h3>
+					<p class="hero-paragraph">
+						Today Jose gets his Triple XXX syrup from the Coca-Cola Company. Sadly, most Triple XXX restaurants
+						eventually gave way to the onslaught of fast-food outlets.
+					</p>
+					<p class="hero-paragraph">
+						A brief tour of the history behind Issaquah's own Triple XXX restaurant long recognized as
+						a community landmark. All that's left to make your trip back in time complete is to drive over to 98 N.E.
+						Gilman Boulevard, say hello to Jose, and indulge yourself in old style root beer, golden oldies and memories
+						of days gone by.
+					</p>
+					<!-- Add a modal  -->
+					<div class="row">
+						<div class="col text-center">
+							<a role="button" class="btn btn-md custom-btn" id="atmosphereButton">
+								View More
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 col-sm-12 d-flex justify-content-center order-sm-1" data-aos="fade-left">
+					<img src="img/unnamed.jpg" class="hero-img d-none d-sm-block" alt="img2">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="atmosphereModal" class="modal fade" role="dialog">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header text-white">
+					<h3 class="modal-title">What's changed?</h3>
+					<button type="button" class="close text-white" data-dismiss="modal">&times;</button>
+				</div>
+				<div class="modal-body p-3 pt-4">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-sm-6">
+								<p class="hero-paragraph" style="color: black;">
+									The restaurant hasn't changed much since then, save for the addition of a lot of '50s and '60s
+									memorabilia
+									such as old radios, soft-drink bottles, license plates, posters of rock-'n-rollers and movie stars by
+									Jose
+									Enciso, who began leasing the Triple XXX from Norm in 1999. Jose and family members, along with other
+									employees, deliver a friendly and informal hospitality reminiscent of the drive-in days at their peak
+									in the
+									1950s.
+								</p>
+							</div>
+							<div class="col-6 m-auto">
+								<img src="img/Capture2.JPG" class="img-fluid" alt="img2">
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -155,130 +237,90 @@
 	<!-- Events-->
 	<div class="container-fluid reason-to-visit">
 		<div class="container">
-			<div class="row top-heading mt-5">
-				<div class="col-md-12">
+			<div class="row top-heading">
+				<div class="col-md-12 pt-5 pb-5">
 					<p style="color: antiquewhite">Reviews</p>
 				</div>
 			</div>
-			
-			<div class="row pt-5">
-				<div class="col-4">
-					<div class="card card4">
+			<div class="row card-deck pb-5">
+				<div class="col-md-4 col-sm-12 pt-md-0 pt-sm-5">
+					<div class="card" data-aos-duration="1000" data-aos-delay="100" data-aos="flip-up">
+						<img src="/img/review-1.png" class="card-img-top" alt="...">
 						<div class="card-body">
 							<div class="card-text">
-								<div class="fb-post" data-href="https://www.facebook.com/jennie.p.haynes/posts/10225100923577140"
-									data-width="500" data-show-text="true">
-									<blockquote cite="https://www.facebook.com/jennie.p.haynes/posts/10225100923577140"
-										class="fb-xfbml-parse-ignore">
-										<p>Awesome place to eat! Fun atmostphere!</p>Posted by <a href="#" role="button">Jennie Peterson
-											Haynes</a> on&nbsp;<a href="https://www.facebook.com/jennie.p.haynes/posts/10225100923577140">Tuesday,
-											April 21, 2020</a>
-									</blockquote>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-4">
-					<div class="card card4">
-						<div class="card-body">
-							<div class="card-text">
-								<div class="fb-post" data-href="https://www.facebook.com/jennie.p.haynes/posts/10225100923577140"
-									data-width="500" data-show-text="true">
-									<blockquote cite="https://www.facebook.com/jennie.p.haynes/posts/10225100923577140"
-										class="fb-xfbml-parse-ignore">
-										<p>Awesome place to eat! Fun atmostphere!</p>Posted by <a href="#" role="button">Jennie Peterson
-											Haynes</a> on&nbsp;<a href="https://www.facebook.com/jennie.p.haynes/posts/10225100923577140">Tuesday,
-											April 21, 2020</a>
-									</blockquote>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-4">
-					<div class="card card4">
-						<div class="card-body">
-							<div class="card-text">
-								<div class="fb-post" data-href="https://www.facebook.com/jennie.p.haynes/posts/10225100923577140"
-									data-width="500" data-show-text="true">
-									<blockquote cite="https://www.facebook.com/jennie.p.haynes/posts/10225100923577140"
-										class="fb-xfbml-parse-ignore">
-										<p>Awesome place to eat! Fun atmostphere!</p>Posted by <a href="#" role="button">Jennie Peterson
-											Haynes</a> on&nbsp;<a href="https://www.facebook.com/jennie.p.haynes/posts/10225100923577140">Tuesday,
-											April 21, 2020</a>
-									</blockquote>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row pt-5 pb-5">
-				<div class="col-4">
-					<div class="card card4">
-						<div class="card-body">
-							<div class="card-text">
-								<div class="fb-post" data-href="https://www.facebook.com/jennie.p.haynes/posts/10225100923577140"
-									data-width="500" data-show-text="true">
-									<blockquote cite="https://www.facebook.com/jennie.p.haynes/posts/10225100923577140"
-										class="fb-xfbml-parse-ignore">
-										<p>Awesome place to eat! Fun atmostphere!</p>Posted by <a href="#" role="button">Jennie Peterson
-											Haynes</a> on&nbsp;<a href="https://www.facebook.com/jennie.p.haynes/posts/10225100923577140">Tuesday,
-											April 21, 2020</a>
-									</blockquote>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-4 col-md-6">
-					<div class="card card4">
-						<div class="card-body">
-							<div class="card-text">
-								<div class="fb-post" data-href="https://www.facebook.com/jennie.p.haynes/posts/10225100923577140"
-									data-width="500" data-show-text="true">
-									<blockquote cite="https://www.facebook.com/jennie.p.haynes/posts/10225100923577140"
-										class="fb-xfbml-parse-ignore">
-										<p>Awesome place to eat! Fun atmostphere!</p>Posted by <a href="#" role="button">Jennie Peterson
-											Haynes</a> on&nbsp;<a href="https://www.facebook.com/jennie.p.haynes/posts/10225100923577140">Tuesday,
-											April 21, 2020</a>
-									</blockquote>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-4 col-md-6">
-					<div class="card card4">
-						<div class="card-body">
-							<div class="card-text">
-								<div class="fb-post" data-href="https://www.facebook.com/jennie.p.haynes/posts/10225100923577140"
-									data-width="500" data-show-text="true">
-									<blockquote cite="https://www.facebook.com/jennie.p.haynes/posts/10225100923577140"
-										class="fb-xfbml-parse-ignore">
-										<p>Awesome place to eat! Fun atmostphere!</p>Posted by <a href="#" role="button">Jennie Peterson
-											Haynes</a> on&nbsp;<a href="https://www.facebook.com/jennie.p.haynes/posts/10225100923577140">Tuesday,
-											April 21, 2020</a>
-									</blockquote>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+								<blockquote class="blockquote card-body">
 
+									<footer class="blockquote-footer">Elizabeth Nelson
+										<cite title="Source Title">
+											"Awesome place to stop by and get a burger. The staff is awesome and the root-beer is good!"
+										</cite>
+									</footer>
+								</blockquote>
+							</div>
+						</div>
+						<div class="card-footer d-flex justify-content-center">
+							<a target="_blank" href="https:">
+								<i class="fa fa-thumbs-up like-icon"></i>
+								<small class="text-muted">Last updated 3 mins ago</small>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-12 pt-md-0 pt-sm-5">
+					<div class="card" data-aos-duration="1000" data-aos-delay="200" data-aos="flip-up">
+						<img src="/img/review-2.PNG" class="card-img-top" alt="...">
+						<div class="card-body">
+							<div class="card-text">
+								<blockquote class="blockquote card-body">
+									<footer class="blockquote-footer">Luis Merced
+										<cite title="Source Title">
+											"Love this place. Perfect spot after a long day or long hike. Comfort food at its finest. Remember
+											though nothing you eat here is healthy."
+										</cite>
+									</footer>
+								</blockquote>
+							</div>
+						</div>
+						<div class="card-footer d-flex justify-content-center">
+							<a target="_blank" href="https:">
+								<i class="fa fa-thumbs-up like-icon"></i>
+								<small class="text-muted">Last updated 1 hour 34mins ago</small>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-12 pt-md-0 pt-sm-5">
+					<div class="card" data-aos-duration="1000" data-aos-delay="300" data-aos="flip-up">
+						<img src="/img/review-3.PNG" class="card-img-top" alt="...">
+						<div class="card-body">
+							<div class="card-text">
+								<blockquote class="blockquote card-body">
+									<!-- <p class="mb-2">A pictures worth a thousand words. Pure bliss right here!</p> -->
+									<footer class="blockquote-footer">Natashia Dault
+										<cite title="Source Title">
+											"A pictures worth a thousand words. Pure bliss right here!"
+										</cite>
+									</footer>
+								</blockquote>
+							</div>
+						</div>
+						<div class="card-footer d-flex justify-content-center">
+							<a target="_blank" href="https:">
+								<i class="fa fa-thumbs-up like-icon"></i>
+								<small class="text-muted">Last updated 2 months ago</small>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
+	</div>
 	<!--Events-->
-
-
-
 
 	<!--team start-->
 	<div class="container-fluid team mb-5">
 		<div class="container">
-
 			<div class="row top-heading mt-5">
 				<div class="col-md-12">
 					<p>Meet The Crew</p>
@@ -288,20 +330,20 @@
 			</div>
 			<div class="row">
 				<div class="col-md-4">
-					<div class="card card-team">
+					<div class="card card-team" data-aos="fade-right">
 						<img class="card-img-top" src="img/employee1.jpg">
 						<div class="card-body">
 							<div class="card-title">
 								Employee 1
 							</div>
 							<div class="card-text">
-								Passion about service, and always greeting customers with smiles. 
+								Passion about service, and always greeting customers with smiles.
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-4">
-					<div class="card card-team">
+					<div class="card card-team" data-aos="fade">
 						<img class="card-img-top" src="img/employee2.jpg">
 						<div class="card-body">
 							<div class="card-title">
@@ -314,14 +356,15 @@
 					</div>
 				</div>
 				<div class="col-md-4">
-					<div class="card card-team">
+					<div class="card card-team" data-aos="fade-left">
 						<img class="card-img-top" src="img/employee3.jpg">
 						<div class="card-body">
 							<div class="card-title">
 								Employee 3
 							</div>
 							<div class="card-text">
-								A little bit of everything, from planning events to taking on the entire floor we would be nowhere without her.
+								A little bit of everything, from planning events to taking on the entire floor we would be nowhere
+								without her.
 							</div>
 						</div>
 					</div>
@@ -348,7 +391,7 @@
 	<!--paralalxeffect END-->
 
 	<!--sponser cards start-->
-	<div class="container mb-5" >
+	<div class="container mb-5">
 		<div class="row top-heading mt-5">
 			<div class="col-md-12">
 				<p>Sponsers</p>
@@ -356,31 +399,37 @@
 		</div>
 		<div class="row mt-5">
 			<div class="col-md-4">
-				<div class="card card-blog">
+				<div class="card card-blog" data-aos="zoom-in">
 					<img class="card-img-top img-fluid" src="img/napa.jpg">
 					<div class="card-body">
 						<div class="card-title">NAPA Auto Parts</div>
-							<div class="card-text">NAPA is your trusted source for automotive parts, accessories & know how for your car, truck or SUV. Shop online for original OEM & replacement parts.<span class="red-text"><a href="https://www.napaonline.com/" target="_blank"> learn more...</a></span>
-							</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="card card-blog">
-					<img class="card-img-top img-fluid" src="img/tires.jpg" style="border: solid black 3px;">
-					<div class="card-body">
-						<div class="card-title">BIG O Tires</div>
-						<div class="card-text">For over 50 years we have been helping our neighbors and friends. We're proud to provide quality, affordable tires and services that you have trusted over the years.<span class="red-text"><a href="https://www.bigotires.com/home" target="_blank"> learn more...</a></span>
+						<div class="card-text">NAPA is your trusted source for automotive parts, accessories & know how for your
+							car, truck or SUV. Shop online for original OEM & replacement parts.<span class="red-text"><a
+									href="https://www.napaonline.com/" target="_blank"> learn more...</a></span>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-4">
-				<div class="card card-blog">
+				<div class="card card-blog" data-aos="zoom-in">
+					<img class="card-img-top img-fluid" src="img/tires.jpg" style="border: solid black 3px;">
+					<div class="card-body">
+						<div class="card-title">BIG O Tires</div>
+						<div class="card-text">For over 50 years we have been helping our neighbors and friends. We're proud to
+							provide quality, affordable tires and services that you have trusted over the years.<span
+								class="red-text"><a href="https://www.bigotires.com/home" target="_blank"> learn more...</a></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="card card-blog" data-aos="zoom-in">
 					<img class="card-img-top img-fluid" src="img/cartoys.jpg" style="border: solid black 3px;">
 					<div class="card-body">
 						<div class="card-title">Car Toys</div>
-						<div class="card-text">A better way to go. Car Toys is the largest independent multi-channel specialty car audio and mobile electronics retailer in America.<span class="red-text"><a href="https://www.cartoys.com/" target="_blank"> learn more...</a></span>
+						<div class="card-text">A better way to go. Car Toys is the largest independent multi-channel specialty car
+							audio and mobile electronics retailer in America.<span class="red-text"><a href="https://www.cartoys.com/"
+									target="_blank"> learn more...</a></span>
 						</div>
 					</div>
 				</div>
@@ -404,8 +453,10 @@
 						Issaquah, WA 98027</p><br />
 					<p><i class="fa fa-envelope" aria-hidden="true"></i> administrator@triplexrootbeer.com </p>
 					<p><i class="fa fa-phone" aria-hidden="true"></i> (425) 392-1266 </p>
-					<p><i class="fa fa-facebook-square" aria-hidden="true"></i> 
-						<a target="_blank" class="" href="https://www.facebook.com/TripleXXX-Root-Beer-Drive-In-192288094206599/">Visit us on Facebook</a></p>
+					<p><i class="fa fa-facebook-square" aria-hidden="true"></i>
+						<a target="_blank" class=""
+							href="https://www.facebook.com/TripleXXX-Root-Beer-Drive-In-192288094206599/">Visit us on Facebook</a>
+					</p>
 				</div>
 				<div class="col-md-4 col-sm-6">
 					<h4>OPENING HOURS:</h4>
@@ -417,7 +468,9 @@
 					<p>Saturday: 11am to 9pm</p>
 				</div>
 				<div class="col-md-4 pb-5">
-					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d171907.2757000703!2d-122.32337086288176!3d47.68342595269274!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54906f86a5441bdf%3A0x7925fbb734293a31!2sTriple%20XXX%20Rootbeer%20Drive-in!5e0!3m2!1sen!2sus!4v1615569048551!5m2!1sen!2sus" width="400" height="300" style="border:0;" allowfullscreen="true" loading="lazy"></iframe>
+					<iframe
+						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d171907.2757000703!2d-122.32337086288176!3d47.68342595269274!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54906f86a5441bdf%3A0x7925fbb734293a31!2sTriple%20XXX%20Rootbeer%20Drive-in!5e0!3m2!1sen!2sus!4v1615569048551!5m2!1sen!2sus"
+						width="400" height="300" style="border:0;" allowfullscreen="true" loading="lazy"></iframe>
 				</div>
 			</div>
 		</div>
@@ -430,12 +483,14 @@
 			<div class="row">
 				<div class="col-md-4 offset-md-4">Designed by VCD innovative solutions.</div>
 				<div class="col-md-4 text-right pt-3">
-					<a class="btn btn-social-icon btn-instagram" target="_blank" 
-          href="https://www.instagram.com/explore/locations/235351684/united-states/issaquah-washington/triple-xxx-burgers/?hl=en"><i class="fa fa-instagram"></i></a>
-					<a class="btn btn-social-icon btn-facebook" target="_blank" 
-          href="https://www.facebook.com/TripleXXX-Root-Beer-Drive-In-192288094206599/"><i class="fa fa-facebook"></i></a>
+					<a class="btn btn-social-icon btn-instagram" target="_blank"
+						href="https://www.instagram.com/explore/locations/235351684/united-states/issaquah-washington/triple-xxx-burgers/?hl=en"><i
+							class="fa fa-instagram"></i></a>
+					<a class="btn btn-social-icon btn-facebook" target="_blank"
+						href="https://www.facebook.com/TripleXXX-Root-Beer-Drive-In-192288094206599/"><i
+							class="fa fa-facebook"></i></a>
 					<a class="btn btn-social-icon btn-google" target="_blankk"
-          href="https://www.youtube.com/watch?v=9duj5VE9I2I&lc=UgiJd28mS1YcsHgCoAEC"><i class="fa fa-youtube"></i></a>
+						href="https://www.youtube.com/watch?v=9duj5VE9I2I&lc=UgiJd28mS1YcsHgCoAEC"><i class="fa fa-youtube"></i></a>
 				</div>
 			</div>
 		</div>
@@ -454,7 +509,10 @@
 		crossorigin="anonymous"></script>
 	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 	<script src="js/scripts.js"></script>
-	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v10.0" nonce="TgGkLoaM"></script>
+	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v10.0"
+		nonce="TgGkLoaM"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+	<script src="js/scripts.js"></script>
 </body>
 
 </html>
