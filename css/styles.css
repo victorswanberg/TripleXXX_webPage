@@ -273,3 +273,7 @@ a, a:hover {
     color: white;
     font-size: 1em;}
   
+/* Chases styles */
+#contactForm{
+  margin-top: 200px;
+}
