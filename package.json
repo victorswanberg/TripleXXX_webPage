@@ -2,7 +2,7 @@
   "name": "triple-xxx-website",
   "version": "1.0.0",
   "description": "Triple X webpage for Portfolio project",
-  "main": "index.html",
+  "main": "home.html",
   "scripts": {
     "lite": "lite-server",
     "scss": "node-sass -o css/ css/",
