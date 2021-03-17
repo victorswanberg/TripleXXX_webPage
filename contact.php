@@ -21,8 +21,7 @@
 			$body .= "Message: ".$message. "\r\n";
 
 			mail($to,$subject,$body);
-
-
+			$message_sent = true;
 		}
 	}
 ?>
@@ -116,6 +115,7 @@
 			<button class="btn btn-danger btn-lg" type="submit">Submit</button>
 		</div>
 	</form>
+
 	<?php
 	endif;
 	?>

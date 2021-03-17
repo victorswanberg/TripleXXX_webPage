@@ -262,11 +262,9 @@ a, a:hover {
   /*daves styles start*/
   .carousel-image {
     max-height: 8m;
-    width: 100%;
-    
+    width: 100%; 
   }
 
- 
  .sides dl dd { 
    text-align: right;
   }
