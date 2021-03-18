@@ -6,18 +6,26 @@ AOS.init();
 
 
 $(function () {
-  $(".carousel").carousel({ interval: 2000})
-  $(".carousel").on( "click", function() {
-      if($("#carouselButton").children("i").hasClass("fa-pause")){
-          $(".carousel").carousel("pause");
-          $("#carouselButton").children("i").removeClass("fa-pause");
-          $("#carouselButton").children("i").addClass("fa-play");
-      }else{
-          $(".carousel").carousel("cycle");
-          $("#carouselButton").children("i").removeClass("fa-play");
-          $("#carouselButton").children("i").addClass("fa-pause");
-      }
-  })
+    //Scripts for controlling menu Carousel:
+
+    //Interval:
+  $(".carousel").carousel({ interval: 3000})
+
+    //Buttons:
+
+    //NEXT
+    $(".carousel-control-next").on("click", function(){
+        $(".carousel").carousel('next');
+    });
+
+    //PREV
+    $(".carousel-control-prev").on("click", function(){
+        $(".carousel").carousel('prev');
+    });
+
+    //Slide indicators/selectors
+
+  //Scripts for modals on history page:
   $("#historyButton").on( "click", function() {
       $("#historyModal").modal("toggle");
   })
