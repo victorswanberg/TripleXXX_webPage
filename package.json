@@ -16,7 +16,11 @@
     "clean": "rimraf dist",
     "build": "npm run clean && npm run imagemin && npm run copyfonts && npm run usemin"
   },
+<<<<<<< HEAD
   "author": "Victor Swanberg, name, name",
+=======
+  "author": "Victor Swanberg, Chase Lones, David Avtandilyan",
+>>>>>>> 2fafac4dafd2c42cadc456d9162eecdf19e83932
   "license": "ISC",
   "devDependencies": {
     "copyfiles": "^2.2.0",
